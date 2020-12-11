@@ -1,0 +1,24 @@
+version: '3.7'
+services:
+  jenkins:
+    user: root
+    image: jenkins/jenkins:lts
+    restart: always
+    ports:
+      - "1000:8080"
+    volumes:
+      - ./jenkins/jenkins_home:/var/jenkins_home:rw
+  jsreport:
+    user: root
+    build:
+      context: ./jsreport
+    restart: always
+    ports:
+      - "1001:5488"
+    volumes:
+    - ./jsreport/jsreport-data:/app/data
+  server-helper:
+    image: cloudwarekh/server-helper
+    restart: always
+    ports:
+      - "1002:4000"

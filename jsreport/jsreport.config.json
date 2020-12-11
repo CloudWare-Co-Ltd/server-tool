@@ -1,0 +1,48 @@
+{
+  "httpPort": 5488,
+  "store": {
+    "provider": "fs"
+  },
+  "blobStorage": {
+    "provider": "fs"
+  },
+  "logger": {
+    "console": {
+      "transport": "console",
+      "level": "debug"
+    },
+    "file": {
+      "transport": "file",
+      "level": "info",
+      "filename": "logs/reporter.log"
+    },
+    "error": {
+      "transport": "file",
+      "level": "error",
+      "filename": "logs/error.log"
+    }
+  },
+  "allowLocalFilesAccess": true,
+  "reportTimeout": 600000,
+  "templatingEngines": {
+    "strategy": "http-server"
+  },
+  "extensions": {
+    "authentication": {
+      "cookieSession": {
+        "secret": "dasd321as56d1sd5s61vdv32"
+      },
+      "admin": {
+        "username": "cloudware",
+        "password": "cloudware@jsreport"
+      },
+      "enabled": true
+    },
+    "sample-template": {
+      "createSamples": false
+    },
+    "scripts": {
+      "strategy": "http-server"
+    }
+  }
+}
